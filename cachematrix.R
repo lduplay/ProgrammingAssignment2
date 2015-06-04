@@ -16,7 +16,6 @@ makeCacheMatrix <- function(x = matrix()) {
     xInv <<- NULL ## Since we've set a new matrix, the old inverted matrix isn't needed
   }
   
-  
   ## Sets or gets a number for the mean of vector x (but not neccessarily correct)
   setInv <- function(Inverted) xInv <<- Inverted
   getInv <- function() xInv
@@ -46,6 +45,6 @@ cacheSolve <- function(x, ...) {
   ## If it hasn't, calculate and store a new one
   data <- x$get()
   xInv <- solve(data, ...)
-  x$setmean(xInv)
+  x$setInv(xInv)
   xInv
 }
